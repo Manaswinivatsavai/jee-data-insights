@@ -1,7 +1,7 @@
 
 import requests 
 while True:
-    user_name=input("User Name(Press 'n' to exit):")
+    user_name=input("User Name(Press 'n' to exit):").strip()
     url_=f'https://api.github.com/users/{user_name}/repos'
     response=requests.get(url_)
     data=response.json()
@@ -18,7 +18,7 @@ while True:
         for repo in data:
             print(f"Repo :{repo['name']}\nLink :{repo['html_url']}")
             count+=1
-        print("*"*50)
+        # print("*"*50)
         print("TOTAL REPOS:{}".format(count))
         print("*"*80)
 
